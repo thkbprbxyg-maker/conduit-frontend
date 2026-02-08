@@ -1,4 +1,4 @@
 xport const environment = {
   production: false,
-  apiURL: 'http://localhost:8000/api'
+  apiURL: (window as any).__env?.apiUrl || 'http://localhost:8000/api'
 }; 
