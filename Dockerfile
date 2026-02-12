@@ -6,6 +6,11 @@ COPY package*.json ./
 RUN npm ci
 
 COPY . .
+
+# ✅ Inject API URL at build-time (no hardcoded IP in repo)
+ARG API_URL=http://<your_server_ip>:8000/api
+RUN sed -i "s|http://<your_server_ip>:8000/api|${API_URL}|g" src/environments/environment.prod.ts
+
 RUN npm run build
 
 # ---- Runtime stage ----
