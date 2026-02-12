@@ -1,3 +1,3 @@
 window.__env = {
-  apiUrl: "http://localhost:8000/api"
+  apiUrl: (window as any)._env? .apiUrl || "http://localhost:8000/api"
 } 
