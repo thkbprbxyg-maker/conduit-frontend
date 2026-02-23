@@ -1,3 +1,4 @@
+import { environment } from 'src/nvironments/environment';
 import { Injectable } from "@angular/core";
 import {
   HttpEvent,
@@ -13,7 +14,7 @@ export class ApiInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const apiReq = req.clone({ url: `https://api.realworld.io/api${req.url}` });
+    const apiReq = req.clone({ url: `${environment.apiURL}${req.url}` })
     return next.handle(apiReq);
   }
 }
