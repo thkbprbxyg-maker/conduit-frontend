@@ -8,7 +8,7 @@ RUN npm ci
 COPY . .
 
 ARG API_URL=http://localhost:8000/api
-RUN sed -i "s|API_URL|${API_URL}|g" src/environment.prod.ts
+RUN sed -i "s|API_URL|${API_URL}|g" src/environment/environment.prod.ts
 
 RUN npm run build
 
